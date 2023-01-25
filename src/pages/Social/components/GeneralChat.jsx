@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { auth, db } from "../utils/firebase-config";
+import { auth, db } from "../../../utils/firebase-config";
 import {
 	addDoc,
 	collection,
@@ -10,7 +10,7 @@ import {
 	where,
 } from "firebase/firestore";
 
-const SocialChat = () => {
+const GeneralChat = () => {
 	const [newMessage, setNewMessage] = useState("");
 	const [allMessages, setAllMessages] = useState([]);
 	const messagesRef = collection(db, "general_chat");
@@ -55,7 +55,9 @@ const SocialChat = () => {
 			{/* Display messages */}
 			<div className='flex flex-col space-y-2'>
 				{allMessages.map((message) => (
-					<div key={message.id} className='flex justify-start'>
+					<div
+						key={message.id}
+						className='flex justify-start'>
 						<span>{message.user || "User"}:</span>
 						<span>{message.text}</span>
 					</div>
@@ -72,8 +74,7 @@ const SocialChat = () => {
 				/>
 				<button
 					onClick={sendMessage}
-					className='mx-auto my-auto bg-primary w-[18%] text-white py-2 rounded-full hover:scale-105 active:scale-100 duration-100 transition-all'
-				>
+					className='mx-auto my-auto bg-primary w-[18%] text-white py-2 rounded-full hover:scale-105 active:scale-100 duration-100 transition-all'>
 					Send
 				</button>
 			</div>
@@ -81,4 +82,4 @@ const SocialChat = () => {
 	);
 };
 
-export default SocialChat;
+export default GeneralChat;

@@ -1,9 +1,9 @@
-import React from "react";
+import Helmet from "../../components/Helmet";
 
 const Calendar = () => {
 	return (
-		<div className='mt-10'>
-			<div>
+		<Helmet title={"Calendar"}>
+			<div className='mt-10 w-full'>
 				<h2 className='text-2xl font-bold underline underline-offset-4'>
 					Calendar
 				</h2>
@@ -11,7 +11,7 @@ const Calendar = () => {
 					All the events of the organization for the upcoming months.
 				</p>
 			</div>
-		</div>
+		</Helmet>
 	);
 };
 

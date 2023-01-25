@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { auth } from "../utils/firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { auth, db } from "../utils/firebase-config";
+import { doc, setDoc } from "firebase/firestore";
 
 import { Logo } from "../assets";
 
 const UserSignup = () => {
 	const [registerEmail, setRegisterEmail] = useState("");
 	const [registerPassword, setRegisterPassword] = useState("");
+	const [fullname, setFullname] = useState("");
 	const [error, setError] = useState("");
 
 	const navigate = useNavigate();
@@ -21,6 +23,13 @@ const UserSignup = () => {
 				registerPassword
 			);
 			alert("User created");
+			// Add details to User collection
+			const userRef = doc(db, "users", user.user.uid);
+			const docRef = setDoc(userRef, {
+				fullname,
+				email: registerEmail,
+			});
+			alert("Document written:");
 			navigate("/home");
 		} catch (error) {
 			console.log(error.message);
@@ -48,6 +57,13 @@ const UserSignup = () => {
 						{error && (
 							<p className='text-red-500 text-center text-lg mb-4'>{error}</p>
 						)}
+						<p className='px-1 mb-2'>Full Name</p>
+						<input
+							type={"text"}
+							placeholder='Full Name'
+							onChange={(e) => setFullname(e.target.value)}
+							className='rounded-xl p-2 px-1 mb-5 outline-none shadow-lg border border-gray-200 border-solid '
+						/>
 						<p className='px-1 mb-2'>Email</p>
 						<input
 							type={"text"}

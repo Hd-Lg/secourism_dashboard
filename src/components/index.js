@@ -1,6 +1,6 @@
 import ProtectedRoute from "./ProtectedRoute";
 import Navbar from "./Navbar";
-import Date from "./Date";
-import SocialChat from "./SocialChat";
+import Helmet from "./Helmet";
+import Layout from "./Layout";
 
-export { ProtectedRoute, Navbar, Date, SocialChat };
+export { ProtectedRoute, Navbar, Helmet, Layout };

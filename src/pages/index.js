@@ -1,14 +1,14 @@
 import UserSignin from "./UserSignin";
 import UserSignup from "./UserSignup";
-import Homepage from "./Homepage";
-import Calendar from "./Calendar";
-import Contacts from "./Contacts";
-import Messages from "./Messages";
-import Chat from "./Chat";
-import Settings from "./Settings";
-import Inventory from "./Inventory";
-import Tresorerie from "./Tresorerie";
-import Administration from "./Administration";
+import Homepage from "./Homepage/Homepage";
+import Calendar from "./Calendar/Calendar";
+import Contacts from "./Contacts/Contacts";
+import Messages from "./Messages/Messages";
+import Social from "./Social/Social";
+import Settings from "./Settings/Settings";
+import Inventory from "./Inventory/Inventory";
+import Tresorerie from "./Tresorerie/Tresorerie";
+import Administration from "./Administration/Administration";
 
 export {
 	UserSignin,
@@ -17,7 +17,7 @@ export {
 	Calendar,
 	Contacts,
 	Messages,
-	Chat,
+	Social,
 	Settings,
 	Inventory,
 	Tresorerie,

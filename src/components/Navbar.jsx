@@ -14,7 +14,6 @@ import {
 	AiOutlineLaptop,
 } from "react-icons/ai";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-
 import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 
@@ -34,10 +33,12 @@ const Navbar = () => {
 
 	return (
 		<nav className='h-screen w-1/3 lg:w-1/4  flex-wrap border-r-2 border-solid border-primary overflow-hidden py-4 bg-white mr-9'>
-			<div className='flex flex-col space-y-10 h-screen'>
+			<div className='flex flex-col space-y-5 h-screen'>
 				<div className='text-center'>
 					{/* add logo */}
-					<h2 className='text-4xl text-primary'>Secourism Dashboard</h2>
+					<h2 className='text-2xl font-black text-primary'>
+						Secourism Dashboard
+					</h2>
 				</div>
 				<div className='flex flex-col items-center'>
 					{/* Avatar */}
@@ -65,9 +66,9 @@ const Navbar = () => {
 							<AiOutlineMessage className='my-auto w-6 h-6 mr-4 ' />
 							Messages
 						</CustomLink>
-						<CustomLink href={"/chat"}>
+						<CustomLink href={"/social"}>
 							<AiOutlineWechat className='my-auto w-6 h-6 mr-4 ' />
-							Chat
+							Social
 						</CustomLink>
 
 						<CustomLink href={"/settings"}>
@@ -95,8 +96,7 @@ const Navbar = () => {
 				<div className='flex mt-28 justify-center align-bottom'>
 					<button
 						onClick={logoutUser}
-						className='flex font-bold text-primary hover:bg-primary hover:text-white p-3 rounded-xl '
-					>
+						className='flex font-bold text-primary hover:bg-primary hover:text-white p-3 rounded-xl '>
 						<AiOutlineLogout className='my-auto w-6 h-6 mr-2' />
 						Sign Out
 					</button>
@@ -115,8 +115,7 @@ const CustomLink = ({ href, children }) => {
 			to={href}
 			className={`flex cursor-pointer text-xl hover:bg-primary hover:text-white p-1 rounded-xl pl-2 w-full ${
 				isActive ? "underline underline-offset-4 bg-primary text-white" : ""
-			}`}
-		>
+			}`}>
 			{children}
 		</Link>
 	);
